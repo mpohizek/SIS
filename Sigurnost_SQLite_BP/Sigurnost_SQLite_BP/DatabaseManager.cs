@@ -19,7 +19,7 @@ namespace Sigurnost_SQLite_BP
            using (SQLiteConnection dbConnection = new SQLiteConnection(connectionString))
             {
                 dbConnection.Open();
-                string sqlQuery = "SELECT count(*) FROM zaposlenik as z WHERE korime = @username AND lozinka = @password";
+                string sqlQuery = "SELECT count(*) FROM zaposlenik as z JOIN odjel as o ON zid = upravitelj WHERE korime = @username AND lozinka = @password";
 
                 SQLiteCommand sQLiteCommand = new SQLiteCommand(sqlQuery);
                 sQLiteCommand.Parameters.AddWithValue("@username", username);

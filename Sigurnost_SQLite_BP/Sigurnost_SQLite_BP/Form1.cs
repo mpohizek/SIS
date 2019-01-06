@@ -49,7 +49,7 @@ namespace Sigurnost_SQLite_BP
                 {
                     //user isn't valid
                     trynum--;
-                    MessageBox.Show("Korisnik s tim korisničkim imenom i/ili lozinkom nije pronađen.\n Preostalo vam je " + trynum + " pokušaja");
+                    MessageBox.Show("Voditelj odjela s tim korisničkim imenom i/ili lozinkom nije pronađen.\n Preostalo vam je " + trynum + " pokušaja");
                 }
             }
             
