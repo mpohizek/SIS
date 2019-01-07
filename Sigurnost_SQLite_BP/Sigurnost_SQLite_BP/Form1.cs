@@ -29,20 +29,24 @@ namespace Sigurnost_SQLite_BP
             string lozinka = uiInputLozinka.Text;
             
             //TODO: admin logika za potrebe testiranja
-            if(korime == "admin" && lozinka == "adminpass")
+            if(korime == "admin" && lozinka == "123")
             {
                 //TODO: open admin view
+                AdminWindow adminWindow = new AdminWindow();
+                adminWindow.ShowDialog();
+                this.Close();
             }
             else
             {
-                //TODO: change to hashed check like it's in the comment
-                if(DatabaseManager.CheckUser(korime,lozinka))//Encryption.Hashing(korime), Encryption.PasswordHashing(korime, lozinka)))
+                //TODO: change to hashed check
+                if(DatabaseManager.CheckUser(korime,Encryption.PasswordHashing(korime,lozinka)))
                 {
                     //user is valid
                     trynum = 3;
 
                     MessageBox.Show("Uspješno ste ulogirani");
                     //TODO: pronađi korisnika i njegov odjel kojemu ima pristup
+                    Employee employee = DatabaseManager.FetchEmployee(korime);
                     //TODO: otvori pregled zaposlenika tog odjela
                 }
                 else
