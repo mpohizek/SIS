@@ -27,19 +27,27 @@ namespace Sigurnost_SQLite_BP
             }
             string korime = uiInputKorisnickoIme.Text;
             string lozinka = uiInputLozinka.Text;
-            
-            //TODO: admin logika za potrebe testiranja
-            if(korime == "admin" && lozinka == "123")
+            //TODO: remove testing
+            if (korime == "admin" && lozinka == "123")
             {
-                //TODO: open admin view
                 AdminWindow adminWindow = new AdminWindow();
+                this.Hide();
                 adminWindow.ShowDialog();
                 this.Close();
             }
             else
+                return;
+
+            //TODO: change to hashed check
+            if (DatabaseManager.CheckUser(korime,Encryption.PasswordHashing(korime,lozinka)))
             {
-                //TODO: change to hashed check
-                if(DatabaseManager.CheckUser(korime,Encryption.PasswordHashing(korime,lozinka)))
+                if (korime == "admin") {
+                    AdminWindow adminWindow = new AdminWindow();
+                    this.Hide();
+                    adminWindow.ShowDialog();
+                    this.Close();
+                }
+                else
                 {
                     //user is valid
                     trynum = 3;
@@ -49,12 +57,13 @@ namespace Sigurnost_SQLite_BP
                     Employee employee = DatabaseManager.FetchEmployee(korime);
                     //TODO: otvori pregled zaposlenika tog odjela
                 }
-                else
-                {
-                    //user isn't valid
-                    trynum--;
-                    MessageBox.Show("Voditelj odjela s tim korisničkim imenom i/ili lozinkom nije pronađen.\n Preostalo vam je " + trynum + " pokušaja");
-                }
+
+            }
+            else
+            {
+                //user isn't valid
+                trynum--;
+                MessageBox.Show("Voditelj odjela s tim korisničkim imenom i/ili lozinkom nije pronađen.\n Preostalo vam je " + trynum + " pokušaja");
             }
             
         }

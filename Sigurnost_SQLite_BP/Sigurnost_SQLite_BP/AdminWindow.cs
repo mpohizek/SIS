@@ -28,6 +28,7 @@ namespace Sigurnost_SQLite_BP
                 return;
             }
 
+            //TODO: add encryption
             Employee employee = new Employee(tbZIme.Text, tbZPrezime.Text, tbZKorime.Text, tbZAdresa.Text,
                 odjel, tbZBankovniRacun.Text, tbZEmail.Text);
 
@@ -49,6 +50,7 @@ namespace Sigurnost_SQLite_BP
                 return;
             }
 
+            //TODO: add encryption
             Department department = new Department(tbOIme.Text, managerId);
             if(DatabaseManager.AddDepartment(department))
             {
@@ -57,8 +59,7 @@ namespace Sigurnost_SQLite_BP
 
                 Employee employee= DatabaseManager.FetchEmployee(managerId);
                 sendPass(employee.Email, newPassword);
-
-                //TODO: dodati lozinku korisniku
+                
                 DatabaseManager.SetEmployeePass(managerId, Encryption.PasswordHashing(employee.Username, newPassword));
             }
             else
@@ -80,6 +81,7 @@ namespace Sigurnost_SQLite_BP
         
         private void sendEmail(string email, string subject, string message)
         {
+            //TODO: fix
             MailMessage mail = new MailMessage("v@gmail.com", email);
             SmtpClient client = new SmtpClient();
             client.Port = 25;
