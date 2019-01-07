@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.tbOIme = new System.Windows.Forms.TextBox();
-            this.tbOUpravitelj = new System.Windows.Forms.TextBox();
+            this.tbOId = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnDodajOdjel = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
@@ -52,23 +52,25 @@
             this.tbZAdresa = new System.Windows.Forms.TextBox();
             this.tbZPrezime = new System.Windows.Forms.TextBox();
             this.tbZKorime = new System.Windows.Forms.TextBox();
+            this.tbVodiOdjel = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbOIme
             // 
-            this.tbOIme.Location = new System.Drawing.Point(116, 55);
+            this.tbOIme.Location = new System.Drawing.Point(116, 83);
             this.tbOIme.Name = "tbOIme";
             this.tbOIme.Size = new System.Drawing.Size(100, 20);
             this.tbOIme.TabIndex = 0;
             // 
-            // tbOUpravitelj
+            // tbOId
             // 
-            this.tbOUpravitelj.Location = new System.Drawing.Point(116, 94);
-            this.tbOUpravitelj.Name = "tbOUpravitelj";
-            this.tbOUpravitelj.Size = new System.Drawing.Size(100, 20);
-            this.tbOUpravitelj.TabIndex = 1;
+            this.tbOId.Location = new System.Drawing.Point(116, 34);
+            this.tbOId.Name = "tbOId";
+            this.tbOId.Size = new System.Drawing.Size(100, 20);
+            this.tbOId.TabIndex = 1;
             // 
             // groupBox1
             // 
@@ -76,17 +78,17 @@
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.tbOIme);
-            this.groupBox1.Controls.Add(this.tbOUpravitelj);
+            this.groupBox1.Controls.Add(this.tbOId);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(295, 299);
+            this.groupBox1.Size = new System.Drawing.Size(295, 193);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Odjel";
             // 
             // btnDodajOdjel
             // 
-            this.btnDodajOdjel.Location = new System.Drawing.Point(67, 257);
+            this.btnDodajOdjel.Location = new System.Drawing.Point(68, 140);
             this.btnDodajOdjel.Name = "btnDodajOdjel";
             this.btnDodajOdjel.Size = new System.Drawing.Size(157, 23);
             this.btnDodajOdjel.TabIndex = 16;
@@ -97,16 +99,16 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(38, 97);
+            this.label9.Location = new System.Drawing.Point(65, 37);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(58, 15);
+            this.label9.Size = new System.Drawing.Size(17, 15);
             this.label9.TabIndex = 15;
-            this.label9.Text = "Upravitelj";
+            this.label9.Text = "Id";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(54, 58);
+            this.label8.Location = new System.Drawing.Point(54, 86);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(28, 15);
             this.label8.TabIndex = 14;
@@ -114,6 +116,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.tbVodiOdjel);
+            this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.tbZEmail);
             this.groupBox2.Controls.Add(this.btnDodajZaposlenika);
@@ -131,12 +135,12 @@
             this.groupBox2.Controls.Add(this.tbZAdresa);
             this.groupBox2.Controls.Add(this.tbZPrezime);
             this.groupBox2.Controls.Add(this.tbZKorime);
-            this.groupBox2.Location = new System.Drawing.Point(323, 12);
+            this.groupBox2.Location = new System.Drawing.Point(329, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(295, 299);
-            this.groupBox2.TabIndex = 6;
+            this.groupBox2.Size = new System.Drawing.Size(295, 359);
+            this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Zaposlenik";
+            this.groupBox2.Text = "Voditelj odjela";
             // 
             // label10
             // 
@@ -156,7 +160,7 @@
             // 
             // btnDodajZaposlenika
             // 
-            this.btnDodajZaposlenika.Location = new System.Drawing.Point(72, 257);
+            this.btnDodajZaposlenika.Location = new System.Drawing.Point(76, 316);
             this.btnDodajZaposlenika.Name = "btnDodajZaposlenika";
             this.btnDodajZaposlenika.Size = new System.Drawing.Size(142, 23);
             this.btnDodajZaposlenika.TabIndex = 17;
@@ -276,11 +280,27 @@
             this.tbZKorime.Size = new System.Drawing.Size(135, 20);
             this.tbZKorime.TabIndex = 2;
             // 
+            // tbVodiOdjel
+            // 
+            this.tbVodiOdjel.Location = new System.Drawing.Point(124, 279);
+            this.tbVodiOdjel.Name = "tbVodiOdjel";
+            this.tbVodiOdjel.Size = new System.Drawing.Size(135, 20);
+            this.tbVodiOdjel.TabIndex = 21;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(57, 282);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(61, 15);
+            this.label11.TabIndex = 20;
+            this.label11.Text = "Vodi odjel";
+            // 
             // AdminWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(636, 345);
+            this.ClientSize = new System.Drawing.Size(636, 381);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "AdminWindow";
@@ -296,11 +316,15 @@
         #endregion
 
         private System.Windows.Forms.TextBox tbOIme;
-        private System.Windows.Forms.TextBox tbOUpravitelj;
+        private System.Windows.Forms.TextBox tbOId;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnDodajOdjel;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox tbZEmail;
+        private System.Windows.Forms.Button btnDodajZaposlenika;
         private System.Windows.Forms.TextBox tbZOdjel;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
@@ -315,9 +339,7 @@
         private System.Windows.Forms.TextBox tbZAdresa;
         private System.Windows.Forms.TextBox tbZPrezime;
         private System.Windows.Forms.TextBox tbZKorime;
-        private System.Windows.Forms.Button btnDodajOdjel;
-        private System.Windows.Forms.Button btnDodajZaposlenika;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox tbZEmail;
+        private System.Windows.Forms.TextBox tbVodiOdjel;
+        private System.Windows.Forms.Label label11;
     }
 }

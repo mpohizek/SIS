@@ -19,10 +19,10 @@ namespace Sigurnost_SQLite_BP
             Manager = manager;
         }
 
-        public Department(string name, int manager)
+        public Department(int id, string name)
         {
             Name = name;
-            Manager = manager;
+            Id = id;
         }
     }
 }
