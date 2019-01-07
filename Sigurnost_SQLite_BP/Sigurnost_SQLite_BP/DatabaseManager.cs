@@ -160,6 +160,42 @@ namespace Sigurnost_SQLite_BP
             }
             return employee;
         }
+        public static Employee FetchEmployee(string username)
+        {
+            Employee employee = new Employee();
+            using (SQLiteConnection dbConnection = new SQLiteConnection(connectionString))
+            {
+                dbConnection.Open();
+                string sqlQuery = "SELECT zid, ime, prezime, korime, adresa, lozinka, oid," +
+                    " bankovniRacun, email FROM zaposlenik as z WHERE korime = @username";
+
+                SQLiteCommand sQLiteCommand = new SQLiteCommand(sqlQuery);
+                sQLiteCommand.Parameters.AddWithValue("@username", username);
+                sQLiteCommand.Connection = dbConnection;
+
+                using (sQLiteCommand)
+                {
+                    using (IDataReader reader = sQLiteCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            employee.Id = reader.GetInt32(0);
+                            employee.FirstName = reader.GetString(1);
+                            employee.LastName = reader.GetString(2);
+                            employee.Username = reader.GetString(3);
+                            employee.Address = reader.GetString(4);
+                            employee.Password = reader.GetString(5);
+                            employee.DepId = reader.GetInt32(6);
+                            employee.BankAcc = reader.GetString(7);
+                            employee.Email = reader.GetString(8);
+                        }
+                        reader.Close();
+                        dbConnection.Close();
+                    }
+                }
+            }
+            return employee;
+        }
 
         public static bool SetEmployeePass(int empId, string pass)
         {
